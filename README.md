@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-<!--
+<!-- 
 **Fbiuserr/Fbiuserr** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
@@ -14,3 +14,14 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+README.NMD 
+Heyy . Im learning 
+and i wanna learn
+ how to fight for 3rd party  licences  
+and stalker,
+ who has done my phone apps 
+and everything public 
+ so someone can watch EVERYTHING 
+i do on my emails 
+
+ and everything else. Any ideas? 
