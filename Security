@@ -1,0 +1,57 @@
+nimi : Brakeman Scan
+päällä :
+[pää] 
+työntää : 
+oksat : 
+[pää] 
+pull_request :
+oksat : 
+aikataulu :
+ - cron : ' 23 7 * * 4 '
+
+tärkein
+Use Control + Space to trigger autocomplete in most situations.
+# Tämä työnkulku yhdistää Brakemanin GitHubin koodiskannaustoimintoon
+# Brakeman on staattisen analyysin tietoturva -haavoittuvuusskanneri Ruby on Rails -sovelluksille
+
+nimi : Brakeman Scan
+
+päällä :
+  työntää :
+    oksat : [pää]
+  pull_request :
+    # Alla olevien haarojen on oltava osa edellä olevista haaroista
+    oksat : [pää]
+  aikataulu :
+    - cron : ' 42 23 * * 3 '
+
+työpaikat :
+  jarruttajan skannaus :
+    nimi : Brakeman Scan
+    käynnissä : ubuntu-uusin
+    vaiheet :
+    # Tarkista arkisto GitHub Actions -juoksijalta
+    - nimi : Checkout
+      käyttää : action/checkout@v2
+
+    # Muokkaa rubiiniversiota tarpeidesi mukaan
+    - nimi : Asenna Ruby
+      käyttää : action/setup-ruby@v1
+      kanssa :
+        rubiini-versio : ' 2.7 '
+
+    - nimi : Setup Brakeman
+      env :
+        BRAKEMAN_VERSION : ' 4.10 '  # SARIF -tuki on saatavilla Brakeman -versiossa 4.10+
+      juokse : |
+        helmi install brakeman --versio $ BRAKEMAN_VERSION
+    # Suorita Brakeman CLI ja luo SARIF -lähtö analyysin aikana havaituista turvallisuusongelmista
+    - nimi : Skannaa
+      jatka-virhe : totta
+      juokse : |
+        jarrumies -f sarif -o output.sarif.json.
+    # Lataa edellisessä vaiheessa luotu SARIF -tiedosto
+    - nimi : Lataa SARIF
+      käyttää : github/codeql-action/upload-sarif@v1
+      kanssa :
+        sarif_file : output.sarif.json
